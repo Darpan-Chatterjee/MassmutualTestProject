@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+	<configuration>
+		<!-- report theme --> <!-- standard, dark -->
+		<theme>standard</theme>
+
+		<!-- document encoding -->  <!-- defaults to UTF-8 -->
+		<encoding>UTF-8</encoding>
+
+		<!-- protocol for script and stylesheets -->   <!-- defaults to https -->
+		<protocol>https</protocol>
+
+		<!-- title of the document -->
+		<documentTitle>Massmutual Test ExtentReport</documentTitle>
+
+		<!-- report name - displayed at top-nav -->
+		<reportName>Cucumber Extent Report</reportName>
+
+		<!-- global date format override -->  <!-- defaults to yyyy-MM-dd -->
+		<dateFormat>yyyy-MM-dd</dateFormat>
+
+		<!-- global time format override -->   <!-- defaults to HH:mm:ss -->
+		<timeFormat>HH:mm:ss</timeFormat>
+
+		<!-- custom javascript -->
+		<scripts>
+      <![CDATA[
+        $(document).ready(function() {
+        
+        });
+      ]]>
+      <![CDATA[
+        window.onload=function(){
+        	for(var j=0;j<=100;j++){
+        	//alert("Hello! I am an alert box!!");
+	        var child = document.getElementsByClassName("scenariooutline node");
+	        //alert(child.length);
+	        for(var i=0;i<child.length;i++)
+	        {
+    			var child_temp=child[i];
+    			//alert(child_temp.getAttribute("status"));
+    			if(child_temp.getAttribute("status")=='skip')
+    			{
+    				child_temp.parentNode.removeChild(child_temp);
+    			}
+			}
+			var child = document.getElementsByClassName("scenariooutline node");
+	        //alert(child.length);
+	        for(var i=0;i<child.length;i++)
+	        {
+    			var child_temp=child[i];
+    			//alert(child_temp.getAttribute("status"));
+    			if(child_temp.getAttribute("status")=='skip')
+    			{
+    				child_temp.parentNode.removeChild(child_temp);
+    			}
+			}
+			var child = document.getElementsByClassName("test displayed has-leaf skip");
+	        //alert(child.length);
+	        for(var i=0;i<child.length;i++)
+	        {
+    			var child_temp=child[i];
+    			//alert(child_temp.getAttribute("status"));
+    			if(child_temp.getAttribute("status")=='skip')
+    			{
+    				child_temp.parentNode.removeChild(child_temp);
+    			}
+			}
+        }
+        }
+      ]]>
+		</scripts>
+
+		<!-- custom styles -->
+		<styles>
+      <![CDATA[
+        
+      ]]>
+		</styles>
+	</configuration>
+</extentreports>
